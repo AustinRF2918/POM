@@ -1,0 +1,61 @@
+@function get-rowHeight($type)
+{
+    @if $type == phone 
+    {
+        @return $phone-elementHeight;
+    }
+    @else if $type == tablet
+    {
+        @return $tablet-elementHeight;
+    }
+    @else if $type == desktop
+    {
+        @return $desktop-elementHeight;
+    }
+    @else if $type == huge
+    {
+        @return $huge-elementHeight;
+    }
+    @else if $type == laptop
+    {
+        @return $laptop-elementHeight
+    }
+    @else if $type == lowHeight
+    {
+        @return $phone-elementHeight;
+    }
+
+}
+
+
+@mixin row-generate($number, $type)
+{
+    @if $type == phone or $type == tablet or $type == desktop or $type == huge or $type == laptop or $type == lowHeight
+    {
+        @include breakpoint($type) 
+        {
+                min-height: get-rowHeight($type) * $number;
+        }
+    }
+    @else 
+    {
+        @error("Improper input to row-generate: phone, tablet, laptop, desktop, or huge as parameters. You entered: #{$type}");
+    }
+}
+
+@mixin top-generate($number, $type)
+{
+    @if $type == phone or $type == tablet or $type == desktop or $type == huge or $type == laptop or $type == lowHeight
+    {
+        @include breakpoint($type) 
+        {
+                margin-top: get-rowHeight($type) * $number;
+        }
+    }
+    @else 
+    {
+        @error("Improper input to top-generate: phone, tablet, laptop, desktop, or huge as parameters. You entered: #{$type}");
+    }
+}
+
+
