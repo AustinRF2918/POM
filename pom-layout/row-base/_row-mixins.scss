@@ -1,6 +1,6 @@
 @function get-rowHeight($type)
 {
-    @if $type in $media-list
+    @if contains($media-list, $type)
     {
         @return getElementHeight($type);
     }
