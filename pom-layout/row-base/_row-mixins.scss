@@ -28,7 +28,7 @@
 }
 
 
-@mixin row-generate($number, $type)
+@mixin row-generate($type, $number)
 {
     @if $type == phone or $type == tablet or $type == desktop or $type == huge or $type == laptop or $type == lowHeight
     {
@@ -43,7 +43,7 @@
     }
 }
 
-@mixin top-generate($number, $type)
+@mixin top-generate($type, $number)
 {
     @if $type == phone or $type == tablet or $type == desktop or $type == huge or $type == laptop or $type == lowHeight
     {

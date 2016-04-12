@@ -1,62 +1,72 @@
-@mixin row-generate-mass($number, $overload1 : null, $overload2 : null, $overload3 : null, $overload : null)
+@mixin row-generate-mass($number, $phone-omit : null, $tablet-omit : null, $desktop-omit : null, $huge-omit : null, $lowHeight-omit : null)
 {
-    @if $overload != phone and $overload1 != phone and $overload2 != phone and $overload3 != phone
+    @if ($phone-omit == null)
     {
-        @include row-generate($number, phone);
+        @include row-generate(phone, $number);
     }
 
-    @if $overload != tablet and $overload1 != tablet and $overload2 != tablet and $overload3 != tablet
+    @if ($tablet-omit == null)
     {
-        @include row-generate($number, tablet);
+        @include row-generate(tablet, $number);
     }
 
-    @if $overload != desktop and $overload1 != desktop and $overload2 != desktop and $overload3 != desktop
+    @if ($desktop-omit == null)
     {
-        @include row-generate($number, desktop);
+        @include row-generate(desktop, $number);
     }
     
-    @if $overload != huge and $overload1 != huge and $overload2 != huge and $overload3 != huge
+    @if ($huge-omit == null)
     {
-        @include row-generate($number, huge);
+        @include row-generate(huge, $number);
     }
 
-    @if $overload != lowHeight and $overload1 != lowheight and $overload2 != lowheight and $overload3 != lowheight
+    @if ($lowHeight-omit == null)
     {
-        @include row-generate($number, lowHeight)
+        @include row-generate(lowHeight, $number)
     }
 }
 
 
-@mixin top-generate-mass($number, $mobileOffset, $computerOffset, $tabletOffset : null, $hugeOffset: null, $lowHeightOffset: null)
+@mixin top-generate-mass($number, $phoneOffset : null, $desktopOffset : null, $tabletOffset : null, $hugeOffset: null, $lowHeightOffset : null)
 {
-    @include top-generate($number - $mobileOffset, phone);
+     @if ($phoneOffset != null)
+    {
+        @include top-generate(phone, $number - $phoneOffset);
+        @if ($tabletOffset == null)
+        {
 
-    @if $tabletOffset == null
-    {
-        @include top-generate($number + $mobileOffset, tablet);
-    }
-    @else 
-    {
-        @include top-generate($number + $tabletOffset, tablet);
-    }
-
-    @include top-generate($number - $computerOffset, desktop);
-
-    @if $hugeOffset == null
-    {
-        @include top-generate($number + $computerOffset, huge);
-    }
-    @else 
-    {
-        @include top-generate($number + $hugeOffset, huge);
+            @include top-generate(tablet, $number - $phoneOffset);
+        }
     }
 
-    @if $lowHeightOffset == null
+    @if ($tabletOffset != null)
     {
-        @include top-generate($number + $mobileOffset, lowHeight);
+        @include top-generate(tablet, $number - $tabletOffset);
     }
-    @else 
+
+    @if ($desktopOffset != null)
     {
-        @include top-generate($number + $lowHeightOffset, lowHeight);
+        @include top-generate(desktop, $number - $desktopOffset);
+        @if ($hugeOffset == null)
+        {
+            @include top-generate(huge, $number - $desktopOffset);
+        }
     }
+
+    @if ($hugeOffset != null)
+    {
+        @include top-generate(huge, $number - $hugeOffset);
+    }
+
+    @if ($lowHeightOffset == null)
+    {
+        @include top-generate(lowHeight, $number - $phoneOffset);
+    }
+
+    @if ($lowHeightOffset != null)
+    {
+        @include top-generate(lowHeight, $number - $lowHeightOffset);
+    }
+
+
 }
