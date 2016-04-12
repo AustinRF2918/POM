@@ -6,28 +6,24 @@ $media-boundTypes: (phone: upper, tablet: upper, desktop: upper, huge: lower, lo
 
 //Breakpoints
 @mixin breakpoint($point){
-    @each $i in $media-list 
+    @if contains($media-list, $point)
     {
-        @if $point == $i{
-            @if map-has-key($media-boundTypes, $i)
+        @if map-has-key($media-boundTypes, $point)
+        {
+            @if map-get($media-boundTypes, $point) == lower
             {
-                @if map-get($media-boundTypes, $i) == lower 
+                @media screen and (min-width: getMediaLowerBound($point))
                 {
-                    @media screen and (min-width: getMediaLowerBound(#{$i}))
-                    {
-                        @content;
-                    }
+                    @content;
                 }
-                @if map-get($media-boundTypes, $i) == upper
+            }
+            @if map-get($media-boundTypes, $point) == upper
+            {
+                @media screen and (max-width: getMediaUpperBound($point))
                 {
-                    @media screen and (max-width: getMediaUpperBound(#{$i}))
-                    {
-                        @content;
-                    }
+                    @content;
                 }
             }
         }
     }
 }
-
-

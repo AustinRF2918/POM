@@ -17,7 +17,7 @@ $responsive-upper-variables: (
 //Functions to easily retrieve these "private" data types.
 @function getMediaLowerBound($type)
 {
-    @if map-exists($responsive-lower-variables, $type)
+    @if map-has-key($responsive-lower-variables, $type)
     {
         @return map-get($responsive-lower-variables, $type);
     }
@@ -29,7 +29,7 @@ $responsive-upper-variables: (
 
 @function getMediaUpperBound($type)
 {
-    @if map-exists($responsive-upper-variables, $type)
+    @if map-has-key($responsive-upper-variables, $type)
     {
         @return map-get($responsive-upper-variables, $type);
     }

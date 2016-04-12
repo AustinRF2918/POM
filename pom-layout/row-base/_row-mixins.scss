@@ -1,40 +1,19 @@
 @function get-rowHeight($type)
 {
-    @if $type == phone 
+    @if $type in $media-list
     {
-        @return $phone-elementHeight;
+        @return getElementHeight($type);
     }
-    @else if $type == tablet
-    {
-        @return $tablet-elementHeight;
-    }
-    @else if $type == desktop
-    {
-        @return $desktop-elementHeight;
-    }
-    @else if $type == huge
-    {
-        @return $huge-elementHeight;
-    }
-    @else if $type == laptop
-    {
-        @return $laptop-elementHeight
-    }
-    @else if $type == lowHeight
-    {
-        @return $phone-elementHeight;
-    }
-
 }
 
 
 @mixin row-generate($type, $number)
 {
-    @if $type == phone or $type == tablet or $type == desktop or $type == huge or $type == laptop or $type == lowHeight
+    @if contains($media-list, $type)
     {
         @include breakpoint($type) 
         {
-                min-height: get-rowHeight($type) * $number;
+            min-height: get-rowHeight($type) * $number;
         }
     }
     @else 
@@ -45,11 +24,11 @@
 
 @mixin top-generate($type, $number)
 {
-    @if $type == phone or $type == tablet or $type == desktop or $type == huge or $type == laptop or $type == lowHeight
+    @if contains($media-list, $type)
     {
         @include breakpoint($type) 
         {
-                margin-top: get-rowHeight($type) * $number;
+            margin-top: get-rowHeight($type) * $number;
         }
     }
     @else 
