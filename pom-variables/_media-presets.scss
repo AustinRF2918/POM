@@ -1,33 +1,31 @@
+//Predefined names.
+$media-list: phone, tablet, desktop, huge, lowHeight;
+
+//The bounds that the media queries will call.
+$media-boundTypes: (phone: upper, tablet: upper, desktop: upper, huge: lower, lowHeight: upper);
+
 //Breakpoints
 @mixin breakpoint($point){
-    @if $point == phone {
-        @media screen and (min-width: $phone-lowerBound)
-        {
-            @content;
-        }
-    }
-    @else if $point == tablet{
-        @media screen and (min-width: $tablet-lowerBound)
-        {
-            @content;
-        }
-    }
-    @else if $point == desktop{
-        @media screen and (min-width: $desktop-lowerBound)
-        {
-            @content;
-        }
-
-    }
-    @else if $point == huge{
-        @media screen and (min-width: $huge-lowerBound){
-            @content;
-        }
-    }
-    @else if $point == lowHeight{
-        @media screen and (max-height: $lowHeight-upperBound)
-        {
-            @content;
+    @each $i in $media-list 
+    {
+        @if $point == $i{
+            @if map-has-key($media-boundTypes, $i)
+            {
+                @if map-get($media-boundTypes, $i) == lower 
+                {
+                    @media screen and (min-width: getMediaLowerBound(#{$i}))
+                    {
+                        @content;
+                    }
+                }
+                @if map-get($media-boundTypes, $i) == upper
+                {
+                    @media screen and (max-width: getMediaUpperBound(#{$i}))
+                    {
+                        @content;
+                    }
+                }
+            }
         }
     }
 }
