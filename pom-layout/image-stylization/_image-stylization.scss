@@ -1,0 +1,41 @@
+@mixin image-responsive-generate($heightMax : null, $heightMin : null, $marginGeneral : null)
+{
+
+    //Maximum boundary height: basically says the maximum that this 
+    //will be able to take up of our screen: This is usually what
+    //a desktop will display.
+    @if ($heightMax != null)
+    {
+        max-height: $heightMax;
+    }
+    @else
+    {
+        max-height: 50vh;
+    }
+
+    //Minimum boundary height: this on the other hand is a little bit 
+    //harder to understand, on LOW HEIGHT displays this is the maximum
+    //that will be displayed, not necessarily on mobile displays.
+    @if ($heightMin != null)
+    {
+        min-height: $heightMin;
+    }
+    @else
+    {
+        min-height: 10vh;
+    }
+
+    //Margin is changable because why not.
+    @if ($marginGeneral != null)
+    {
+        margin: $marginGeneral;
+    }
+    @else
+    {
+        margin: 0 auto 20px;
+    }
+
+    //Default :)
+    padding-top: 0vh;
+    display: block;
+}
