@@ -22,13 +22,6 @@
     }
 }
 
-@mixin row-generate-fixed($number)
-{
-    //Uses phone (Lowest element) as data.
-    min-height: get-rowHeight(phone) * $number;
-}
-
-
 @mixin top-generate($type, $number)
 {
     @if contains($media-list, $type)
@@ -44,8 +37,4 @@
     }
 }
 
-@mixin top-generate-fixed($number)
-{
-    //Uses phone (Lowest element) as data.
-    margin-top: get-rowHeight(phone) * $number;
-}
+

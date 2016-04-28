@@ -1,0 +1,46 @@
+@mixin hide-generate-mass($elementName, $phone-hide : null, $tablet-hide : null, $desktop-hide : null, $huge-hide : null, $lowHeight-hide : null)
+{
+    $media-list: phone, tablet, desktop, huge, lowHeight;
+    .#{$elementName}
+    {
+        @if ($phone-hide != null)
+        {
+            @include breakpoint(phone)
+            {
+                display: none;
+            }
+        }
+
+        @if ($tablet-hide != null)
+        {
+            @include breakpoint(tablet)
+            {
+                display: none;
+            }
+        }
+
+        @if ($desktop-hide != null)
+        {
+            @include breakpoint(desktop)
+            {
+                display: none;
+            }
+        }
+
+        @if ($huge-hide != null)
+        {
+            @include breakpoint(huge)
+            {
+                display: none;
+            }
+        }
+
+        @if ($lowHeight-hide != null)
+        {
+            @include breakpoint(lowHeight)
+            {
+                display: none;
+            }
+        }
+    }
+}
