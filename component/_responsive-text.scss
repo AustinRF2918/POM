@@ -1,0 +1,106 @@
+.title-text
+{
+    @media screen and (max-width: 1000px)
+    {
+        display: none;
+    }
+
+    font-family: $title-text-style;
+
+    h1{
+        font-size: 64px;
+        line-height: 68px * 1.35;
+        color: white;
+    }
+
+    //Refactor as a square element and put text into a seperate element.
+    @include top-generate-mass(2.6 * 1.25, $phoneOffset : 0, $desktopOffset : 0, $tabletOffset: 2, $lowHeightOffset: .1);
+}
+.contact-forms
+{
+
+    h1{
+        font-size: 64px;
+        line-height: 68px * 1.35;
+        color: white;
+    }
+
+    //Refactor as a square element and put text into a seperate element.
+    @include top-generate-mass(2.8 * 1.25, $phoneOffset : 1 * 1.25, $desktopOffset : 0, $tabletOffset: 1 * 1.25, $lowHeightOffset:1 * 1.25);
+     
+}
+
+.alex-photo
+{
+   @media screen and (max-width: 767px)
+   {
+       display: none;
+   }
+}
+
+.contact-information
+{
+   @media screen and (max-width: 767px)
+   {
+       display: none;
+   }
+
+    h1{
+        font-size: 64px;
+        line-height: 68px * 1.35;
+        color: white;
+    }
+
+    //Refactor as a square element and put text into a seperate element.
+    @include top-generate-mass(2.5 * 1.25, $phoneOffset : 2.5 * 1.25, $desktopOffset : 0, $tabletOffset: 2.5 * 1.25, $lowHeightOffset: 2.5 * 1.25);
+}
+
+.about-information
+{
+   @media screen and (max-width: 767px)
+   {
+   }
+
+   p{
+        font-size: 16px;
+   }
+
+    h1{
+        text-transform: uppercase;
+        font-size: 64px;
+        line-height: 68px * 1.35;
+        color: black;
+    }
+
+    //Refactor as a square element and put text into a seperate element.
+    @include top-generate-mass(2.0 * 1.25, $phoneOffset : .25 * 1.25, $desktopOffset : 0, $tabletOffset: .25 * 1.25, $lowHeightOffset: .25 * 1.25);
+}
+
+
+.btn-learn
+{
+    color: black !important;
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+.extra-margin
+{
+    margin-top: 1 * 15px;
+    margin-bottom: 1 * 15px;
+}
+
+body
+{
+    font-family: 'Open Sans', sans-serif;
+}
+
+button
+{
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.extra-margin
+{
+    border-color: white;
+}

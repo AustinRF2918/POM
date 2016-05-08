@@ -1,0 +1,90 @@
+li
+{
+    .active-page
+    {
+        color: #5a5c5d !important;
+        font-weight: bold;
+    }
+}
+
+.navbar
+{
+    //This is all our custom navbar data.
+    .nav
+    {
+
+        a
+        {
+            font-family: $navbar-text-style;
+        }
+    }
+
+    .navbar-brand
+    {
+
+        color: $navbar-color;
+        font-family: $title-text-style !important;
+        letter-spacing: -.06em;
+        font-size: 30px;
+    }
+
+    .subdued{
+        color: lighten($navbar-color, 30%) !important;
+    }
+
+
+    //End of text attributes.
+
+    background: white !important;
+    border: white !important;
+
+    @include row-generate-fixed(1.5);
+
+    #bs-example-navbar-collapse-1
+    {
+        border: white !important;
+    }
+
+    a
+    {
+
+
+        font-family: $navbar-text-style;
+        font-size: $navbar-text-size * 1.25;
+        color: $navbar-color ;
+        @include top-generate-fixed(.33);
+
+        &:hover
+        {
+            color: $navbar-color-hover !important;
+        }
+    }
+
+
+    .navbar-brand
+    {
+        font-weight: bold;
+        font-family: $navbar-text-style;
+        font-size: $navbar-text-size * 1.5 * 1.25;
+        color: $navbar-color ;
+        @include top-generate-fixed(.33);
+
+        &:hover
+        {
+            color: $navbar-color-hover !important;
+        }
+    }
+
+    button
+    {
+        border: $navbar-color ;
+        background: $navbar-color ;
+        @include top-generate-fixed(.5);
+
+        &:hover
+        {
+            background: $navbar-color-hover !important;
+        }
+    }
+
+}

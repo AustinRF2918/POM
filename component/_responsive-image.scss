@@ -1,0 +1,21 @@
+.title-img
+{
+    @include top-generate-mass(3, $phoneOffset : 0, $desktopOffset : 0, $tabletOffset: 2, $lowHeightOffset: .1);
+
+    .img-responsive
+    {
+        @include image-responsive-generate()
+    }
+}
+
+.title-img-purchase
+{
+    @include top-generate-mass(3.5, $phoneOffset : 0, $desktopOffset : 0, $tabletOffset: 2, $lowHeightOffset: .1);
+
+    .img-responsive
+    {
+        @include image-responsive-generate($heightMax: 50vh, $heightMin: 40vh, $widthMin: 25vw, $widthMax: 40vw);
+    }
+}
+
+

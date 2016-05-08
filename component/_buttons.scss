@@ -1,0 +1,33 @@
+.btn-learn
+{
+    margin-top: 20px;
+    background: #524758;
+    border-color: #524758;
+    color: #F1EBDF !important;
+
+    font-weight: bold;
+    font-size: 32px;
+    &:hover
+    {
+        background: darken(#524758, 10%);
+        background-color: darken(#524758, 10%);
+        color: #F1EBDF !important;
+    }
+}
+
+.btn-buy
+{
+    margin-top: 20px;
+    background: #524758;
+    border-color: #524758;
+    color: #F1EBDF !important;
+
+    font-weight: bold;
+    font-size: 16px;
+    &:hover
+    {
+        background: darken(#524758, 10%);
+        background-color: darken(#524758, 10%);
+        color: #F1EBDF !important;
+    }
+}

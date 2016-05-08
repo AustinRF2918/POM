@@ -1,0 +1,8 @@
+@import '../easy-rows/index';
+@import '../easy-rows/pom-layout/row-base/_row-mass-call.scss';
+
+.full-page
+{
+    @include row-generate-mass(12);
+    @include row-background-fixed("../img/title-img.jpg");
+}

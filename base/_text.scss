@@ -1,0 +1,11 @@
+@font-face
+{
+    font-family: card-font;
+    src: url("../fonts/cards.ttf");
+}
+
+$navbar-text-style: 'Roboto Condensed', Arial, sans-serif;
+$navbar-text-size : 16px;
+
+$title-text-style: card-font, 'Roboto Condensed', Arial, sans-serif;
+
