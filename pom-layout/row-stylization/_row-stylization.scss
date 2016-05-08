@@ -11,3 +11,128 @@
     @include background-size(cover);
 }
 
+@mixin row-background-blend($type: null, $color: null, $image: null, $numeric: null)
+{
+    //Easy :) 
+    @if ($color != null)
+    {
+	background-color: $color;
+    }
+
+    @if ($image != null)
+    {
+	background: url($image);
+    }
+
+    @if ($type != null and $numeric != null)
+    {
+	@error("You entered a blend for both a type and a numeric: you can only choose one!");
+    }
+    @elseif ($type != null)
+    {
+	//A real chain here: I didn't feel like using a huge
+	//line of bitwise operators and I'm too tired to
+	//write complex sass, so I just used this.
+
+	@if ($type == normal)
+	{
+	    background-blend-mode: $type;
+	}
+	@elseif ($type == multiple)
+	{
+	    background-blend-mode: $type;
+	}
+	@elseif ($type == screen)
+	{
+	    background-blend-mode: $type;
+	}
+	@elseif ($type == overlay)
+	{
+	    background-blend-mode: $type;
+	}
+	@elseif ($type == darken)
+	{
+	    background-blend-mode: $type;
+	}
+	@elseif ($type == lighten)
+	{
+	    background-blend-mode: $type;
+	}
+	@elseif ($type == color-dodge)
+	{
+	    background-blend-mode: $type;
+	}
+	@elseif ($type == saturation)
+	{
+	    background-blend-mode: $type;
+	}
+	@elseif ($type == color)
+	{
+	    background-blend-mode: $type;
+	}
+	@elseif ($type == luminosity)
+	{
+	    background-blend-mode: $type;
+	}
+	@else
+	{
+	    @error("$type must be defined as: normal, multiple, screen, overlay, darken, lighten, color-dodge, saturation, color, or luminosity.");
+	}
+
+    }
+    @elseif ($numeric != null
+    {
+	@if ($numeric == 1)
+	{
+	    background-blend-mode: normal;
+	}
+	@elseif ($numeric == 2)
+	{
+	    background-blend-mode: multiple;
+	}
+	@elseif ($numeric == 3)
+	{
+	    background-blend-mode: screen;
+	}
+	@elseif ($numeric == 4)
+	{
+	    background-blend-mode: overlay;
+	}
+	@elseif ($numeric == 5)
+	{
+	    background-blend-mode: darken;
+	}
+	@elseif ($numeric == 6)
+	{
+	    background-blend-mode: lighten;
+	}
+	@elseif ($numeric == 7)
+	{
+	    background-blend-mode: color-dodge;
+	}
+	@elseif ($numeric == 8)
+	{
+	    background-blend-mode: saturation;
+	}
+	@elseif ($numeric == 9)
+	{
+	    background-blend-mode: color;
+	}
+	@elseif ($numeric == 10)
+	{
+	    background-blend-mode: luminosity;
+	}
+	@else
+	{
+	    @error("Number must range from 1 to 10.");
+	}
+    }	
+    @else
+    {
+	@error("You didn't enter a type or a numeric: Please define either $type or $numeric inyour function call. Types that are definable are lighten, color-dodge, saturation, color, luminosity, normal, multiple, screen, or overlay. Numeric values can range from 1 to 10.");
+    }
+
+
+
+}
+

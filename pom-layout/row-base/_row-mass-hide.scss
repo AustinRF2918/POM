@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 @mixin hide-generate-mass($elementName, $phone-hide : null, $tablet-hide : null, $desktop-hide : null, $huge-hide : null, $lowHeight-hide)
+=======
+@mixin hide-generate-mass($elementName, $phone-hide : null, $tablet-hide : null, $desktop-hide : null, $huge-hide : null, $lowHeight-hide : null)
+>>>>>>> 62eb66af99e106b417d6d06e4fb151828d2dfa4e
 {
     $media-list: phone, tablet, desktop, huge, lowHeight;
     .#{$elementName}
     {
         @if ($phone-hide != null)
         {
+<<<<<<< HEAD
             @mixin(phone)
+=======
+            @include breakpoint(phone)
+>>>>>>> 62eb66af99e106b417d6d06e4fb151828d2dfa4e
             {
                 display: none;
             }
@@ -13,7 +21,11 @@
 
         @if ($tablet-hide != null)
         {
+<<<<<<< HEAD
             @mixin(tablet)
+=======
+            @include breakpoint(tablet)
+>>>>>>> 62eb66af99e106b417d6d06e4fb151828d2dfa4e
             {
                 display: none;
             }
@@ -21,7 +33,11 @@
 
         @if ($desktop-hide != null)
         {
+<<<<<<< HEAD
             @mixin(desktop)
+=======
+            @include breakpoint(desktop)
+>>>>>>> 62eb66af99e106b417d6d06e4fb151828d2dfa4e
             {
                 display: none;
             }
@@ -29,7 +45,11 @@
 
         @if ($huge-hide != null)
         {
+<<<<<<< HEAD
             @mixin(huge)
+=======
+            @include breakpoint(huge)
+>>>>>>> 62eb66af99e106b417d6d06e4fb151828d2dfa4e
             {
                 display: none;
             }
@@ -37,7 +57,11 @@
 
         @if ($lowHeight-hide != null)
         {
+<<<<<<< HEAD
             @mixin(lowHeight)
+=======
+            @include breakpoint(lowHeight)
+>>>>>>> 62eb66af99e106b417d6d06e4fb151828d2dfa4e
             {
                 display: none;
             }
